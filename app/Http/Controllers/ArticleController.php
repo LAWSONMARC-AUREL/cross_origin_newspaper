@@ -10,8 +10,8 @@ class ArticleController extends Controller
     public function index(?string $source = null): JsonResponse
     {
         if ($source) {
-//            dd(Article::where('source',strtoupper($source))
-//                ->where('title',"Une #8 - L'Equipe")->first()->get('category_id'));
+            //            dd(Article::where('source',strtoupper($source))
+            //                ->where('title',"Une #8 - L'Equipe")->first()->get('category_id'));
             $articles = Article::where('source', strtoupper($source))->get();
         } else {
             $articles = Article::all();
@@ -24,9 +24,14 @@ class ArticleController extends Controller
         return response()->json($articles, 200);
     }
 
+    public function list()
+    {
+        $articles = Article::orderBy('published_at', 'desc')->get();
 
-    public function list(){
+        if ($articles->isEmpty()) {
+            return view('listArticles', ['message' => 'Aucun article trouvé']);
+        }
 
+        return view('listArticles', ['articles' => $articles]);
     }
-
 }

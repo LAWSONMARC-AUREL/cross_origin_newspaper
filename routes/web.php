@@ -14,3 +14,4 @@ Route::get('/fetch/lemonde', [ApiController::class, 'fetchLemonde']);
 
 Route::get('/fetch/lequipe', [ApiController::class, 'fetchLequipe']);
 
+Route::get('/list', [ArticleController::class, 'list']);

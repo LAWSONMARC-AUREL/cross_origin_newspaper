@@ -54,13 +54,13 @@ class ApiController extends Controller
 
     public function fetchLequipe(): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse
     {
-        $token=env('API_TOKEN');
+        $token = env('API_TOKEN');
         //$response= Http::withToken('vQS97b12DxqeAqs15CbvSQdmBP13')->get($this->baseUrl.'lequipe');
-        $response =  Http::get($this->baseUrl.'lequipe?token='.$token);
-        if($response->successful()){
+        $response = Http::get($this->baseUrl.'lequipe?token='.$token);
+        if ($response->successful()) {
             $json = $response->json();
             foreach ($json['data'] as $item) {
-                $name= $item['author']['first_name'].' '.$item['author']['last_name'];
+                $name = $item['author']['first_name'].' '.$item['author']['last_name'];
                 $author = DB::table('authors')
                     ->whereRaw('UPPER(name) = ?', [strtoupper($name)])
                     ->first();
@@ -76,12 +76,12 @@ class ApiController extends Controller
                         'name' => $item['category']['name'],
                     ]);
                 }
-                $d= new DateTime($item['created_at']);
+                $d = new DateTime($item['created_at']);
                 $article = Article::create([
                     'title' => $item['title'],
                     'content' => $item['content'],
-                    'published_at' => date_format($d,'Y-m-d H:i:s'),
-                    'source' => strtoupper("LEQUIPE"),
+                    'published_at' => date_format($d, 'Y-m-d H:i:s'),
+                    'source' => strtoupper('LEQUIPE'),
                 ]);
 
                 $article->category()->associate($category->id);
@@ -91,6 +91,7 @@ class ApiController extends Controller
             }
 
         }
+
         return redirect('/articles/lequipe');
     }
 }
