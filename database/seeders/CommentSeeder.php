@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
-use App\Models\Author;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Seeder;

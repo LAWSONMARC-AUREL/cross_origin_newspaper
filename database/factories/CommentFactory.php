@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Article;
-use App\Models\Author;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -27,7 +26,7 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'content' => fake()->sentences(7, true),
+            'description' => fake()->sentences(7, true),
             'user_id' => User::inRandomOrder()->first()->id,
             'article_id' => Article::inRandomOrder()->first()->id,
         ];

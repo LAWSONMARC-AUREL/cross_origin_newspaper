@@ -12,12 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->dropForeign(['author_id']);
-            $table->dropColumn(['author_id']);
-
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
+            $table->renameColumn('content', 'description');
         });
     }
 

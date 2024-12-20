@@ -34,7 +34,7 @@
                                     <h3>{{ $comment->user->name }}</h3>
                                 </div>
                                 <div class="card-body">
-                                    <p>{{ $comment->content }}</p>
+                                    <p>{{ $comment->description }}</p>
                                 </div>
                                 <div class="card-footer">
                                     <p>Date de création: {{ $comment->created_at }}</p>
@@ -44,6 +44,9 @@
 
                     @endforeach
             </div>
+        </div>
+        <div class="container mt-3">
+            <a href="{{ route('comments.create', ['articleId' => $article->id]) }}" class="btn btn-primary mt-3" style="background-color: #ff7f32; border: none;">Poster un commentaire</a>
         </div>
         </div>
     @endsection
