@@ -6,6 +6,11 @@
     <title>Mon Application</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
         .navbar-light.bg-light {
             background-color: #ff7f32 !important;
         }
@@ -72,7 +77,7 @@
         }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column">
 <div class="container">
     <!-- Menu de navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -90,7 +95,7 @@
     </nav>
 </div>
 
-<div class="mt-2">
+<div class=" d-flex" style="flex: 1;" >
     @yield('content')
 </div>
 

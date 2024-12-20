@@ -14,6 +14,7 @@ class Article extends Model
         'published_at',
         'source',
         'category_id',
+        'author_id',
     ];
 
     public $timestamps = false;

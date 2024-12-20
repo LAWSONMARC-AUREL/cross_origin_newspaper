@@ -1,6 +1,7 @@
 <div>
     @extends('layouts.app')
     @section('content')
+        <div class="d-flex flex-column w-100 mt-2">
         <div class="container h-50">
             <h1>Article : {{ $article->title }}</h1>
 
@@ -43,6 +44,7 @@
 
                     @endforeach
             </div>
+        </div>
         </div>
     @endsection
 </div>
