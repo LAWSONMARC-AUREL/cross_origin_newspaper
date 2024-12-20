@@ -11,6 +11,19 @@
             width: 100%;
             margin: 0;
         }
+        .navbar {
+            flex-wrap: nowrap; /* Empêche les éléments de s'empiler */
+        }
+
+        .navbar .ms-auto {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .nav-link {
+            margin-right: 10px;
+        }
+
         .navbar-light.bg-light {
             background-color: #ff7f32 !important;
         }
@@ -79,20 +92,34 @@
 </head>
 <body class="d-flex flex-column">
 <div class="container mb-2">
-    <!-- Menu de navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
         <a class="navbar-brand" href="/" style="color: #333;">Accueil</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/articles" style="color: #fff;">Articles</a>
-                </li>
+        <div class="collapse navbar-collapse d-flex flex-sp" id="navbarNav">
+            <ul class="navbar-nav d-flex">
+                <div class="d-flex justify-content-between">
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/articles" style="color: #fff;">Articles</a>
+                    </li>
+                    @auth
+                            <li class="nav-item">
+                                <span class="nav-link text-white">Bonjour, {{ Auth::user()->name }}</span>
+                            </li>
+                            <li class="nav-item">
+                                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-light">Déconnexion</button>
+                                </form>
+                            </li>
+                    @endauth
+                </div>
             </ul>
         </div>
     </nav>
+
+
+
+
 </div>
 
 <div class=" d-flex" style="flex: 1;" >
