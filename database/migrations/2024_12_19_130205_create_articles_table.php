@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('content');
             $table->timestamp('published_at')->nullable(false);
             $table->string('source');
-            $table->foreignId('author_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
 
         });
     }
