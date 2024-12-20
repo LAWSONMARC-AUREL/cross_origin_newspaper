@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Article;
 use App\Models\Author;
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,7 +28,7 @@ class CommentFactory extends Factory
     {
         return [
             'content' => fake()->sentences(7, true),
-            'author_id' => Author::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
             'article_id' => Article::inRandomOrder()->first()->id,
         ];
     }

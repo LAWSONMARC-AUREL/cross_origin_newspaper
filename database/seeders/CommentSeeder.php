@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Article;
 use App\Models\Author;
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class CommentSeeder extends Seeder
@@ -18,7 +19,7 @@ class CommentSeeder extends Seeder
         foreach ($articles as $article) {
             Comment::factory(2)->create([
                 'article_id' => $article->id,
-                'author_id' => Author::inRandomOrder()->first()->id,
+                'user_id' => User::inRandomOrder()->first()->id,
             ]);
         }
     }

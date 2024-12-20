@@ -31,7 +31,7 @@
                     @foreach($article->comments as $comment)
                             <div class="card mt-2">
                                 <div class="card-title">
-                                    <h3>{{ $comment->author->name }}</h3>
+                                    <h3>{{ $comment->user->name }}</h3>
                                 </div>
                                 <div class="card-body">
                                     <p>{{ $comment->content }}</p>

@@ -13,7 +13,7 @@ class Comment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'author_id',
+        'user_id',
         'article_id',
         'content',
     ];
@@ -23,8 +23,8 @@ class Comment extends Model
         return $this->belongsTo(Article::class);
     }
 
-    public function author(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(user::class);
     }
 }
