@@ -15,7 +15,7 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::get('/articles/{source?}', [ArticleController::class, 'index']);
     Route::get('/fetch/lemonde', [ApiController::class, 'fetchLemonde']);
     Route::get('/fetch/lequipe', [ApiController::class, 'fetchLequipe']);
-    Route::get('/', [ArticleController::class, 'list']);
+    Route::get('/', [ArticleController::class, 'list'])->name('list');
     Route::get('articles/{id}/show', [ArticleController::class, 'show'])->name('articles.show');
     Route::get('articles/{articleId}/comments/create', [CommentController::class, 'create'])->name('comments.create');
     Route::post('articles/{articleId}/comments', [CommentController::class, 'store'])->name('comments.store');

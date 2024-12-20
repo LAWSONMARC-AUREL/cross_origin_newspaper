@@ -5,7 +5,14 @@
     @section('content')
         <div class="container d-flex flex-column" style="flex: 1;">
             <h1>Liste des articles</h1>
-
+            <form method="GET" action="{{ route('list') }}" class="mb-4">
+                <div class="input-group">
+                    <label class="form-label mb-2 me-2" for="search">
+                        <input type="text" name="search" class="form-control" placeholder="Rechercher un article..." value="{{ request()->search }}">
+                    </label>
+                    <button class="btn btn-primary" type="submit">Rechercher</button>
+                </div>
+            </form>
             @if(isset($message))
                 <div class="alert alert-warning">
                     {{ $message }}
