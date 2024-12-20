@@ -21,7 +21,7 @@
         .container {
             background-color: #fff5e6;
             border-radius: 8px;
-            padding: 20px;
+            padding: 10px;
             border: 2px solid #333;
         }
 
@@ -65,10 +65,10 @@
         }
 
         .navbar-toggler-icon {
-            background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2230%22 viewBox=%220 0 30 30%22 fill=%22none%22%3E%3Cpath fill=%22%23fff%22 d=%22M5 7h20M5 15h20M5 23h20%22/%3E%3C/svg%3E'); /* Utilisation d'une icône de menu hamburger blanche */
-            background-size: 30px; /* Taille de l'icône */
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2230%22 height=%2230%22 viewBox=%220 0 30 30%22 fill=%22none%22%3E%3Cpath fill=%22%23fff%22 d=%22M5 7h20M5 15h20M5 23h20%22/%3E%3C/svg%3E');
+            background-size: 30px;
             background-repeat: no-repeat;
-            background-position: center; /* Positionner l'icône au centre */
+            background-position: center;
         }
     </style>
 </head>
@@ -90,7 +90,7 @@
     </nav>
 </div>
 
-<div class="container mt-4">
+<div class="mt-2">
     @yield('content')
 </div>
 

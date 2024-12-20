@@ -34,4 +34,9 @@ class ArticleController extends Controller
 
         return view('listArticles', ['articles' => $articles]);
     }
+
+    public function show($id)
+    {
+        return view('showArticle', ['article' => Article::find($id)]);
+    }
 }
